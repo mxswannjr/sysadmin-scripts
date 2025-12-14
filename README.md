@@ -1,113 +1,81 @@
-# DevForge Sysadmin Scripts
+# Mario Digital Signature
 
-A comprehensive collection of system administration scripts for Linux/Unix (Bash) and Windows (PowerShell) environments, following enterprise-grade security and operational best practices.
+A static digital signature page featuring Matrix-style digital rain effects.
 
-## 🎯 **Mission Context**
+## Technical Specification
 
-These scripts are developed by **DevForge Agent** - an elite AI development partner focused on building projects that advance towards CISO/CTO roles. Each script emphasizes security hardening, compliance awareness, and technical leadership.
+### Architecture
+- **HTML5**: Semantic markup with accessibility features
+- **CSS3**: Custom properties, animations, responsive design
+- **Vanilla JavaScript**: No dependencies, secure DOM manipulation
+- **Static Hosting**: No backend required
 
-## 📁 **Repository Structure**
+### Security Implementation
+- Content Security Policy (CSP) with restrictive directives
+- XSS prevention through safe DOM methods
+- No external dependencies or third-party scripts
+- Security headers: X-Frame-Options, X-Content-Type-Options, Permissions-Policy
 
-```
-sysadmin-scripts/
-├── bash/           # Linux/Unix shell scripts
-└── powershell/     # Windows PowerShell scripts
-```
+### Performance Features
+- Memory leak prevention with automatic cleanup
+- Rate limiting for DOM operations
+- Visibility API integration for tab optimization
+- Reduced motion support for accessibility
+- Maximum 50 concurrent rain columns
 
-## Bash Scripts (Linux/Unix)
-
-### system_info.sh
-Displays comprehensive system information including hostname, OS details, CPU, memory, disk usage, and uptime.
-
-**Usage:**
-```bash
-chmod +x bash/system_info.sh
-./bash/system_info.sh
-```
-
-### user_management.sh
-Manages user accounts - lists users, shows login information, and provides commands for creating/deleting users.
-
-**Usage:**
-```bash
-chmod +x bash/user_management.sh
-sudo ./bash/user_management.sh
+### Color Scheme
+```css
+--bg-color: #0a0a0a           /* Charcoal background */
+--rain-color: #9333ea         /* Digital violet */
+--rain-opacity: 0.15           /* Subtle rain effect */
+--logo-color: #a855f7         /* Bright purple */
+--logo-glow: rgba(168, 85, 247, 0.8)  /* Glow effect */
 ```
 
-### backup.sh
-Creates compressed backups of directories and automatically removes old backups.
+### Typography
+- **Primary**: JetBrains Mono (self-hosted WOFF2)
+- **Fallback**: Fira Code, Source Code Pro, SF Mono, Monaco, Consolas, monospace
+- **Weight**: 400 (regular), 700 (bold)
+- **Character spacing**: 0.05em
 
-**Usage:**
-```bash
-chmod +x bash/backup.sh
-# Edit SOURCE_DIR and BACKUP_DIR variables first
-sudo ./bash/backup.sh
+### Animation Specifications
+- **Matrix Rain**: Continuous falling characters, 15-25s duration
+- **Orbital Drift**: 25s figure-8 pattern, cubic-bezier easing
+- **Breathing Glow**: 4s pulse cycle, ±20% brightness variation
+- **Subtle Scale**: ±2% scale variation synchronized with drift
+
+### File Structure
+```
+/
+├── index.html          # Main HTML document
+├── css/
+│   └── style.css       # Styles and animations
+├── js/
+│   └── main.js         # Matrix rain engine
+├── fonts/
+│   ├── JetBrainsMono-Regular.woff2
+│   └── JetBrainsMono-Bold.woff2
+└── README.md           # This documentation
 ```
 
-### service_monitor.sh
-Monitors system services, shows running and failed services.
+### Deployment
+Copy files to any web server or static hosting platform. No build process required.
 
-**Usage:**
-```bash
-chmod +x bash/service_monitor.sh
-./bash/service_monitor.sh
+### Browser Support
+- Modern browsers (Chrome 60+, Firefox 55+, Safari 12+, Edge 79+)
+- Graceful degradation for older browsers
+- Mobile responsive with touch support
+
+### Configuration
+Modify constants in `js/main.js`:
+```javascript
+const CONFIG = {
+    INITIAL_COLUMNS: 15,        // Starting rain columns
+    COLUMN_CREATION_INTERVAL: 800,  // ms between new columns
+    MAX_COLUMNS: 50,            // Maximum concurrent columns
+    MIN_COLUMN_LENGTH: 10,      // Minimum characters per column
+    MAX_COLUMN_LENGTH: 30,      // Maximum characters per column
+    MIN_ANIMATION_DURATION: 15,  // Minimum fall duration (seconds)
+    MAX_ANIMATION_DURATION: 25   // Maximum fall duration (seconds)
+};
 ```
-
-### log_analyzer.sh
-Analyzes system logs for errors, authentication attempts, and disk issues.
-
-**Usage:**
-```bash
-chmod +x bash/log_analyzer.sh
-sudo ./bash/log_analyzer.sh
-```
-
-## PowerShell Scripts (Windows)
-
-### SystemInfo.ps1
-Displays comprehensive system information including computer name, OS, CPU, memory, disk, and network details.
-
-**Usage:**
-```powershell
-.\powershell\SystemInfo.ps1
-```
-
-### UserManagement.ps1
-Manages local user accounts and groups.
-
-**Usage (requires admin):**
-```powershell
-.\powershell\UserManagement.ps1
-```
-
-### Backup.ps1
-Creates compressed ZIP backups of directories and removes old backups.
-
-**Usage:**
-```powershell
-# Edit $SourceDir and $BackupDir variables first
-.\powershell\Backup.ps1
-```
-
-### ServiceMonitor.ps1
-Monitors Windows services and shows running, stopped, and failed services.
-
-**Usage:**
-```powershell
-.\powershell\ServiceMonitor.ps1
-```
-
-### LogAnalyzer.ps1
-Analyzes Windows Event Logs for errors, warnings, and security events.
-
-**Usage (requires admin):**
-```powershell
-.\powershell\LogAnalyzer.ps1
-```
-
-## Notes
-
-- Bash scripts require execute permissions: `chmod +x script.sh`
-- Many operations require root/administrator privileges
-- Edit configuration variables in scripts before first use
-- Test scripts in a safe environment before production use
